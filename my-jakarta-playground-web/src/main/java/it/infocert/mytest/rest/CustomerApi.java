@@ -2,6 +2,7 @@ package it.infocert.mytest.rest;
 
 import it.infocert.mytest.entity.Customer;
 import it.infocert.mytest.model.CustomerDTO;
+import it.infocert.mytest.model.PaymentMethodDTO;
 import it.infocert.mytest.service.CustomerService;
 
 import javax.inject.Inject;

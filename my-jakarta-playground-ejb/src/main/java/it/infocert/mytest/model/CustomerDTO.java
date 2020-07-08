@@ -1,9 +1,9 @@
 package it.infocert.mytest.model;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class CustomerDTO implements Serializable {
+public class CustomerDTO {
 
     private Long id;
 
@@ -14,6 +14,8 @@ public class CustomerDTO implements Serializable {
     private Date birth;
 
     private Date lastUpdate;
+
+    private List<PaymentMethodDTO> paymentMethods;
 
     public Long getId() {
         return id;
@@ -53,5 +55,13 @@ public class CustomerDTO implements Serializable {
 
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public List<PaymentMethodDTO> getPaymentMethods() {
+        return paymentMethods;
+    }
+
+    public void setPaymentMethods(List<PaymentMethodDTO> paymentMethods) {
+        this.paymentMethods = paymentMethods;
     }
 }

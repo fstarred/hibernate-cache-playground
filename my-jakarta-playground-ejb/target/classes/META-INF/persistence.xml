@@ -42,14 +42,21 @@
 
          <property name="hibernate.cache.infinispan.entity.expiration.max_idle" value="30000"/>
          <property name="hibernate.cache.infinispan.query.expiration.max_idle" value="5000"/>
+         <property name="hibernate.cache.infinispan.collection.expiration.max_idle" value="5000"/>
 
          <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.entity-articles.expiration.max_idle" value="20000"/>
          <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.entity-customers.expiration.max_idle" value="25000"/>
+         <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.entity-payment-method.expiration.max_idle" value="15000"/>
 
          <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.query-articles.expiration.max_idle" value="10000"/>
          <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.query-customers.expiration.max_idle" value="15000"/>
 
          <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.nested-article-properties.expiration.max_idle" value="15000"/>
+
+         <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.entity-customers.eviction.max_entries" value="3"/>
+
+         <property name="hibernate.cache.infinispan.my-jakarta-playground.ear/my-jakarta-playground-ejb.jar#primary.entity-payment-method.expiration.life_span" value="10000"/>
+
 
       </properties>
    </persistence-unit>

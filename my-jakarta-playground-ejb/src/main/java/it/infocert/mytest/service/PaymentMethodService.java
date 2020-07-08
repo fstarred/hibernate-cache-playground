@@ -1,8 +1,7 @@
 package it.infocert.mytest.service;
 
-import it.infocert.mytest.entity.Property;
-import it.infocert.mytest.entity.PropertyPk;
-import it.infocert.mytest.model.PropertyDTO;
+import it.infocert.mytest.entity.PaymentMethod;
+import it.infocert.mytest.model.PaymentMethodDTO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.stat.Statistics;
@@ -16,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 @Transactional(Transactional.TxType.REQUIRED)
-public class PropertyService {
+public class PaymentMethodService {
 
     @Inject
     EntityManager entityManager;
@@ -24,19 +23,16 @@ public class PropertyService {
     @Inject
     Logger logger;
 
-    public PropertyDTO get(String articleName, String id) {
+    public PaymentMethodDTO get(Integer id) {
 
         statistics();
 
-        final var pk = new PropertyPk();
-        pk.setArticleName(articleName);
-        pk.setName(id);
+        final PaymentMethod paymentMethod = entityManager.find(PaymentMethod.class, id);
 
-        final Property property = entityManager.find(Property.class, pk);
-
-        final var output = new PropertyDTO();
-        output.setDescription(property.getDescription());
-        output.setName(property.getPk().getName());
+        final var output = new PaymentMethodDTO();
+        output.setType(paymentMethod.getType());
+        output.setNumber(paymentMethod.getNumber());
+        output.setId(paymentMethod.getId());
         return output;
     }
 
@@ -47,5 +43,4 @@ public class PropertyService {
         final SessionFactory sessionFactory = entityManager.unwrap(Session.class).getSessionFactory();
         final Statistics statistics = sessionFactory.getStatistics();
     }
-
 }
