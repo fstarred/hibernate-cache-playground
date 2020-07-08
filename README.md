@@ -70,12 +70,23 @@ public class PaymentMethod implements Serializable {
 
 ### CUSTOMERS API
 
+#### CACHE DURATION
+
 | API	        			| CUSTOMER      | PAYMENT-METHOD  |
 | --------------------- 	|:-------------:| :------------:  |
 | /customers/{id}   		| 25 secs		| 5 secs 		  |
 | /customers		   		| 15 secs		| 5 secs 		  |
 
+#### CACHE CONFIGURATION AFFECTED
+
+| API	        			| CUSTOMER      							| PAYMENT-METHOD  								|
+| --------------------- 	|:---------------------------------------:	| :------------------------------------------:  |
+| /customers/{id}   		| entity-customers.expiration.max_idle		| collection.expiration.max_idle				|
+| /customers		   		| query-customers.expiration.max_idle		| collection.expiration.max_idle				|
+
 ### ARTICLES API
+
+#### CACHE DURATION
 
 | API	        						| ARTICLE       | PROPERTY		  |
 | --------------------- 				|:-------------:| :------------:  |
@@ -83,8 +94,26 @@ public class PaymentMethod implements Serializable {
 | /articles?type	   					| 10 secs		| 15 secs 		  |
 | /articles/{id}/properties/{property}	| -				| 30 secs 		  |
 
+#### CACHE CONFIGURATION AFFECTED
+
+| API	        						| ARTICLE       							| PROPERTY		  									|
+| --------------------- 				|:---------------------------------------:	| :----------------------------------------------:	|
+| /articles/{id}   						| entity-articles.expiration.max_idle		| nested-article-properties.expiration.max_idle 	|
+| /articles?type	   					| query-articles.expiration.max_idle		| nested-article-properties.expiration.max_idle  	|
+| /articles/{id}/properties/{property}	| -											| entity.expiration.max_idle				        |
+
+
 ### PAYMENT-METHOD API
+
+#### CACHE DURATION
 
 | API	        						| PAYMENT METHOD    |
 | --------------------- 				|:----------------:	|
 | /payment-methods/{id}   				| 15 secs			|
+
+
+#### CACHE CONFIGURATION AFFECTED
+
+| API	        						| PAYMENT METHOD    								|
+| --------------------- 				|:------------------------------------------------: |
+| /payment-methods/{id}   				| entity-payment-method.expiration.max_idle			|
