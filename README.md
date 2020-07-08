@@ -68,25 +68,21 @@ public class PaymentMethod implements Serializable {
 
 ## test results
 
-### CUSTOMERS API
-
-#### CACHE DURATION
+### CUSTOMERS API - CACHE DURATION
 
 | API	        			| CUSTOMER      | PAYMENT-METHOD  |
 | --------------------- 	|:-------------:| :------------:  |
 | /customers/{id}   		| 25 secs		| 5 secs 		  |
 | /customers		   		| 15 secs		| 5 secs 		  |
 
-#### CACHE CONFIGURATION AFFECTED
+### CUSTOMERS API - CACHE CONFIGURATION AFFECTED
 
 | API	        			| CUSTOMER      							| PAYMENT-METHOD  								|
 | --------------------- 	|:---------------------------------------:	| :------------------------------------------:  |
 | /customers/{id}   		| entity-customers.expiration.max_idle		| collection.expiration.max_idle				|
 | /customers		   		| query-customers.expiration.max_idle		| collection.expiration.max_idle				|
 
-### ARTICLES API
-
-#### CACHE DURATION
+### ARTICLES API - CACHE DURATION
 
 | API	        						| ARTICLE       | PROPERTY		  |
 | --------------------- 				|:-------------:| :------------:  |
@@ -94,7 +90,7 @@ public class PaymentMethod implements Serializable {
 | /articles?type	   					| 10 secs		| 15 secs 		  |
 | /articles/{id}/properties/{property}	| -				| 30 secs 		  |
 
-#### CACHE CONFIGURATION AFFECTED
+### ARTICLES API - CACHE CONFIGURATION AFFECTED
 
 | API	        						| ARTICLE       							| PROPERTY		  									|
 | --------------------- 				|:---------------------------------------:	| :----------------------------------------------:	|
@@ -103,16 +99,13 @@ public class PaymentMethod implements Serializable {
 | /articles/{id}/properties/{property}	| -											| entity.expiration.max_idle				        |
 
 
-### PAYMENT-METHOD API
-
-#### CACHE DURATION
+### PAYMENT-METHOD API - CACHE DURATION
 
 | API	        						| PAYMENT METHOD    |
 | --------------------- 				|:----------------:	|
 | /payment-methods/{id}   				| 15 secs			|
 
-
-#### CACHE CONFIGURATION AFFECTED
+### PAYMENT-METHOD API - CACHE CONFIGURATION AFFECTED
 
 | API	        						| PAYMENT METHOD    								|
 | --------------------- 				|:------------------------------------------------: |
