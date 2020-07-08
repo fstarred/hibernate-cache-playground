@@ -110,3 +110,8 @@ public class PaymentMethod implements Serializable {
 | API	        						| PAYMENT METHOD    								|
 | --------------------- 				|:------------------------------------------------: |
 | /payment-methods/{id}   				| entity-payment-method.expiration.max_idle			|
+
+## NOTES
+
+* Do not set entity's cache expiration to a value minor that query in order to avoid some unexpected effects (i.e. produce a single entity fetch for each returned row, see also [this](https://discourse.hibernate.org/t/ehcache-hibernate-2nd-level-cache-element-for-key-is-null-and-n-1-query-issue/210/2) link
+* Setting lifespan or max_idle entry to a value of '-1' for infinite expiration time 
